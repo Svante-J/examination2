@@ -1,12 +1,14 @@
 import React from "react";
-import {MyFirstComponent} from "./components/myfirstcomponent/MyFirstComponent"
+
+import {Routing} from "./routes/Routing"
+import {NavigationBar} from "./components/navigationbar/NavigationBar"
+import "./shared/global/global.css"
 
 function App() {
   return (
-    <div>
-      <h1> hello wjörld</h1>
-      < MyFirstComponent name="Svante" age ="37"/>
-    </div>
+    <Routing>
+      <NavigationBar/>      
+    </Routing>
   );
 }
 

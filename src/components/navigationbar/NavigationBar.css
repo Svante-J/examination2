@@ -1,0 +1,8 @@
+.navigationBarWrapper{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    background-color: brown;
+}
+.logotype{
+    width: 5em;
+}
