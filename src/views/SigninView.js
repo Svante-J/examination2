@@ -5,7 +5,7 @@ export const SigninView = () => {
 
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
-    const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
+    const [authenticatedUser, setAuthenticatedUser] = useContext (UserContext)
 
     const login = () => {
         setAuthenticatedUser(username)        
@@ -15,7 +15,8 @@ export const SigninView = () => {
         <div>                 
            <span> Username: </span> <input onChange={event => setUsername(event.target.value)} /> <br/>
            <span> Password: </span> <input type="password" onChange={event => setPassword(event.target.value)} /> <br/>
-           <button onClick={() => login}>Login</button>
+           <button onClick={() => login()}>Login</button>
+           <button onClick={() => alert(authenticatedUser)}>Show authenticated user</button>
            
         </div>
     )
