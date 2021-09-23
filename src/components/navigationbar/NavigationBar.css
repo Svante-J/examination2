@@ -1,8 +1,18 @@
-.navigationBarWrapper{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    background-color: brown;
+.navigationBarWrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: lightblue;
 }
-.logotype{
-    width: 5em;
+.logotype {
+  width: 5em;
+  margin-left: 2em;
+}
+
+.signIn {
+  grid-column: 9/10;
+  align-self: center;
+}
+.logotype,
+ .signIn {
+  cursor: pointer;
 }
