@@ -6,6 +6,7 @@ import { SigninView } from "../views/SigninView";
 import { UserContext } from "../shared/global/provider/UserProvider";
 import { ProfileView } from "../views/ProfileView";
 import { SettingsView } from "../views/SettingsView";
+import {RoutingPath} from "./RoutingPath"
 
 
 export const Routing = (props) => {
@@ -25,12 +26,10 @@ const checkIfUserIsAuthenticated = () => {
     <Router>
       {props.children}
       <Switch>
-        <Route exact path="/drinks" component={DrinksView} />
-        <Route exact path="/signin" component={SigninView} />
-        <Route exact path="/profile" component={ProfileView} />
-        <Route exact path="/settings" component={SettingsView} />
-
-
+        <Route exact path={RoutingPath.DrinksView} component={DrinksView} />
+        <Route exact path={RoutingPath.SigninView} component={SigninView} />
+        <Route exact path={RoutingPath.ProfileView} component={ProfileView} />
+        <Route exact path={RoutingPath.SettingsView} component={SettingsView} />
         <Route component={HomeView} />
       </Switch>
     </Router>
