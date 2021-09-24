@@ -2,9 +2,11 @@
 .profileWrapper{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
+    width: 100%;
+    padding: 1em;
 }
 .profileImg {
-    width: 7vh;
+    width: 5em;
     border-radius: 50%;
     grid-column: 3/5;
 }
@@ -12,4 +14,23 @@
 .displayUsername {
     align-self: center;
     grid-column: 7/11;
+}
+
+.profileDropdown {
+    display: none;
+    position: absolute;
+    background-color: lightcoral;
+    min-width: 10em;
+    padding: 1em 2em;
+    z-index: 10;
+    margin-top: 6em;
+}
+
+.profileWrapper:hover .profileDropdown {
+    display: block;
+}
+.profileDropdown a {
+    display: block;
+    cursor: pointer;
+    padding: 0.5em;
 }
