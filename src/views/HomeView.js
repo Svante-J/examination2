@@ -1,4 +1,4 @@
-
+import { useEffect } from "react"
 
 export const HomeView = () => {
     return(
