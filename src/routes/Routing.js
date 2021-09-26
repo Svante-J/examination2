@@ -6,17 +6,23 @@ import { SigninView } from "../views/SigninView";
 import { UserContext } from "../shared/global/provider/UserProvider";
 import { ProfileView } from "../views/ProfileView";
 import { SettingsView } from "../views/SettingsView";
-import {RoutingPath} from "./RoutingPath"
+import RoutingPath from "./RoutingPath"
 
 
 export const Routing = (props) => {
-  
     const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
 
-const checkIfUserIsAuthenticated = () => {
+    const blockRouteIfAuthenticated = (navigateToView) => {
+      return authenticatedUser ? HomeView : navigateToView
+    }
 
-    setAuthenticatedUser(localStorage.getItem("username"))
-}
+    const blockIfNotAuthenticated = (navigateToView) => {
+      return !authenticatedUser ? SigninView : navigateToView
+    }
+
+    const checkIfUserIsAuthenticated = () => {
+        setAuthenticatedUser(localStorage.getItem("username"))
+    }
 
     useEffect(() => {
         checkIfUserIsAuthenticated()
@@ -26,10 +32,10 @@ const checkIfUserIsAuthenticated = () => {
     <Router>
       {props.children}
       <Switch>
-        <Route exact path={RoutingPath.DrinksView} component={DrinksView} />
-        <Route exact path={RoutingPath.SigninView} component={SigninView} />
-        <Route exact path={RoutingPath.ProfileView} component={ProfileView} />
-        <Route exact path={RoutingPath.SettingsView} component={SettingsView} />
+        <Route exact path={RoutingPath.drinksView} component={blockIfNotAuthenticated(DrinksView)} />
+        <Route exact path={RoutingPath.signInView} component={blockRouteIfAuthenticated(SigninView)} />
+        <Route exact path={RoutingPath.profileView} component={blockIfNotAuthenticated(ProfileView)} />
+        <Route exact path={RoutingPath.settingsView} component={blockIfNotAuthenticated(SettingsView)} />
         <Route component={HomeView} />
       </Switch>
     </Router>
