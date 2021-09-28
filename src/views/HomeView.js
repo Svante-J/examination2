@@ -10,36 +10,35 @@ export const HomeView = () => {
         .catch((error) => console.log(error))
     }
 
+    // const displayData = () => {
+    //     if(data) {
+    //         return <div>              
+    //             <h3> Name: {data.drinks[0].strDrink}</h3>
+                
+    //         </div>
+    //     }
+    // }
+
     const displayData = () => {
         if(data) {
-            return <div>              
-                <h3> Name: {data.drinks[0].strDrink}</h3>
-                
-            </div>
-        }
-    }
+            return (
+                <div>              
+                {data.map((data) =>{
+                   <h6> {data}</h6>
+                }    
+                    
+                </div>
+                )}
+          }
 
     return (
         <div>
             <h1>homeview</h1>
             <button onClick={() => fetchDataFromExternalApi()}>Make api call</button>
+
             {displayData()}
             <button onClick={() => console.log(data)}>Show State</button>
         </div>
     )
 }
-    // const [count, setcount] = useState(0)
-
-//     useEffect(() => {
-//         alert("component is being rendered")
-//         return () => {
-//             alert("component b removed")
-//         }
-//     }, [count])
-//     return(
-//         <div>
-//             <h1> {count}</h1>
-//             <button onClick={() => setcount(count + 1)}> plussa 1</button>
-//         </div>
-//     )
-// }
+    
