@@ -7,6 +7,7 @@ import { Profile } from "../profile/Profile"
 import Routingpath from "../../routes/RoutingPath"
 
 
+
 export const NavigationBar = () => {
    const history = useHistory();
    const [authenticatedUser, setAuthenticatedUser] = useContext(UserContext)
@@ -23,8 +24,7 @@ export const NavigationBar = () => {
             className="logotype"
             src={LogoType} 
             alt="logoimg..." /> 
-            {displayUserIfAuthenticated()}
-            
+            {displayUserIfAuthenticated()}            
         </div>
     )
 }
