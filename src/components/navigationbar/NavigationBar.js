@@ -14,7 +14,7 @@ export const NavigationBar = () => {
    const displayUserIfAuthenticated = () => {       
         return (authenticatedUser)
        ? <div className="profile"><Profile/></div>
-       : <span onClick={() => history.push(Routingpath.signInView)} className="signIn">Sign in</span>       
+       : <span onClick={() => history.push(Routingpath.signInView, "Hej Björn")} className="signIn">Sign in</span>       
    }
 
     return(
